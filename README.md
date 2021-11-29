@@ -6,7 +6,7 @@ As updating and sync a big list is always a memory expensive task. When we work 
 
 ### Follow the following steps for integrate diffutil in your recyclerview adapter.
 
-#### 1. Firts create diffUtilCalback for comparing two list. This callback will be used to compare and get the uncommon item from the new list.
+#### 1. First create diffUtilCalback for comparing two list. This callback will be used to compare and get the uncommon item from the new list.
 ```kotlin
     private val diffUtilsCallBack =
         object : DiffUtil.ItemCallback<DocumentItem>() {
@@ -36,7 +36,7 @@ As updating and sync a big list is always a memory expensive task. When we work 
 ```kotlin
 differ.submitList(itemList)
 ```
-### Now to add and update list create function according to the need,
+#### 4. To add new item list and update the existed list create a function according to the need,
 ```kotlin
     fun addDataSet(dataList: MutableList<DocumentItem>) {
         val previousList =
@@ -45,12 +45,12 @@ differ.submitList(itemList)
         differ.submitList(dataList)
     }
 ```
-##### Here we are saving our previous list(if there) by getting the current available list in diffutil. Else it will return nothing. If it gets previous list, it will do following things.
+Here we are saving our previous list(if there) by getting the current available list in diffutil. Else it will return nothing. If it gets previous list, it will do following things.
 1. If contents are the same it will not change the item.
 2. If they are not same or changed it will update the specefit item but not the list
 3. If there are new items, it will add the new item to the old item list.
 4. If items are same it will use the previous list and will not update anything.
-### To clear list just put null in submit list.
+#### 5. To clear list just put null in submit list.
 ```kotlin
     fun clearDataSet() {
         this.differ.submitList(null)
