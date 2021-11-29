@@ -4,7 +4,9 @@
 ### Why DiffUtil?
 As updating and sync a big list is always a memory expensive task. When we work with big list of thousands of data, it will be very bad practice to update the whole list for few items. So, we come to use diffutl which will specifically get the new items and only update them in the existed list without chaning others. As a result lots of work will be saved and the task will be faster. 
 
-### It is the diffutil callback for comparing the old and new list item and content. 
+### Follow the following steps for integrate diffutil in your recyclerview adapter.
+
+#### 1. Firts create diffUtilCalback for comparing two list. This callback will be used to compare and get the uncommon item from the new list.
 ```kotlin
     private val diffUtilsCallBack =
         object : DiffUtil.ItemCallback<DocumentItem>() {
@@ -24,13 +26,13 @@ As updating and sync a big list is always a memory expensive task. When we work 
         }
 ```
 
-### Here you are initializing the diffutil.
+#### 2. Now you need to initialize the diffutil.
 ```kotlin
     private var differ: AsyncListDiffer<DocumentItem> =
         AsyncListDiffer(this, diffUtilsCallBack)
 ```
 
-### To submit the new/old list, just call submit list from diffutil.
+#### 3. Now to submit the new/old list, just call submit list from diffutil.
 ```kotlin
 differ.submitList(itemList)
 ```
