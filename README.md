@@ -1,7 +1,7 @@
 ## Learn DiffUtil
 ### DiffUtil is a simple differ library to compare lists in a List. Thus optimize list updating and comparison.
 
-###Why DiffUtil?
+### Why DiffUtil?
 As updating and sync a big list is always a memory expensive task. When we work with big list of thousands of data, it will be very bad practice to update the whole list for few items. So, we come to use diffutl which will specifically get the new items and only update them in the existed list without chaning others. As a result lots of work will be saved and the task will be faster. 
 
 ### It is the diffutil callback for comparing the old and new list item and content. 
